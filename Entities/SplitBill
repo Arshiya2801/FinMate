@@ -1,0 +1,93 @@
+{
+  "name": "SplitBill",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Bill title/description"
+    },
+    "total_amount": {
+      "type": "number",
+      "description": "Total amount to split"
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "amount_owed": {
+            "type": "number"
+          },
+          "amount_paid": {
+            "type": "number",
+            "default": 0
+          },
+          "settled": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "description": "List of participants and their shares"
+    },
+    "split_method": {
+      "type": "string",
+      "enum": [
+        "equal",
+        "custom",
+        "percentage"
+      ],
+      "default": "equal",
+      "description": "How to split the bill"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "food",
+        "transport",
+        "entertainment",
+        "shopping",
+        "bills",
+        "travel",
+        "other"
+      ],
+      "default": "other",
+      "description": "Bill category"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "settled",
+        "cancelled"
+      ],
+      "default": "active",
+      "description": "Bill status"
+    },
+    "bill_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the bill"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "URL of uploaded receipt"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": [
+    "title",
+    "total_amount",
+    "participants",
+    "bill_date"
+  ]
+}

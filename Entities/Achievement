@@ -1,0 +1,46 @@
+{
+  "name": "Achievement",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Achievement title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Achievement description"
+    },
+    "badge_type": {
+      "type": "string",
+      "enum": [
+        "savings_streak",
+        "budget_master",
+        "smart_spender",
+        "goal_crusher",
+        "ai_explorer"
+      ],
+      "description": "Type of achievement badge"
+    },
+    "points": {
+      "type": "number",
+      "description": "Points earned"
+    },
+    "unlocked_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date achievement was unlocked"
+    },
+    "progress": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Progress percentage"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "badge_type",
+    "points"
+  ]
+}

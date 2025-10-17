@@ -1,0 +1,101 @@
+{
+  "name": "Transaction",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Transaction description"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Transaction amount"
+    },
+    "dashboard_type": {
+      "type": "string",
+      "enum": [
+        "personal",
+        "business"
+      ],
+      "description": "The dashboard this transaction belongs to"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "food",
+        "transport",
+        "entertainment",
+        "shopping",
+        "bills",
+        "healthcare",
+        "education",
+        "travel",
+        "investment",
+        "revenue",
+        "cogs",
+        "payroll",
+        "marketing",
+        "rent",
+        "utilities",
+        "software",
+        "office_supplies",
+        "other"
+      ],
+      "default": "other",
+      "description": "Transaction category"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "expense",
+        "income"
+      ],
+      "description": "Transaction type"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Transaction date"
+    },
+    "related_party": {
+      "type": "string",
+      "description": "Customer, vendor, or employee name"
+    },
+    "invoice_number": {
+      "type": "string",
+      "description": "Associated invoice number"
+    },
+    "is_tax_deductible": {
+      "type": "boolean",
+      "default": false,
+      "description": "Is this expense tax-deductible?"
+    },
+    "ai_categorized": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this was categorized by AI"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "URL of uploaded receipt"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Transaction tags"
+    },
+    "recurring": {
+      "type": "boolean",
+      "default": false,
+      "description": "Is this a recurring transaction"
+    }
+  },
+  "required": [
+    "description",
+    "amount",
+    "type",
+    "date",
+    "dashboard_type"
+  ]
+}

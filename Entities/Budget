@@ -1,0 +1,45 @@
+{
+  "name": "Budget",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "food",
+        "transport",
+        "entertainment",
+        "shopping",
+        "bills",
+        "healthcare",
+        "education",
+        "travel",
+        "other"
+      ],
+      "description": "Budget category"
+    },
+    "monthly_limit": {
+      "type": "number",
+      "description": "Monthly budget limit"
+    },
+    "current_spent": {
+      "type": "number",
+      "default": 0,
+      "description": "Amount spent this month"
+    },
+    "ai_suggested": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this budget was AI suggested"
+    },
+    "month": {
+      "type": "string",
+      "format": "date",
+      "description": "Budget month"
+    }
+  },
+  "required": [
+    "category",
+    "monthly_limit",
+    "month"
+  ]
+}
